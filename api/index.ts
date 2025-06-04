@@ -1,5 +1,5 @@
 const express = require("express");
-const puppeteer = require("puppeteer-core");
+const puppeteer = require("puppeteer");
 const chromium = require("@sparticuz/chromium");
 
 const app = express();
@@ -10,6 +10,8 @@ app.get("/screenshot", async (req, res) => {
   if (!url) {
     return res.status(400).send("Missing URL");
   }
+
+  console.log("getting screenshots for ", url);
 
   let browser;
   try {
